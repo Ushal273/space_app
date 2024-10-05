@@ -30,7 +30,9 @@
       <div class="moon"></div>
       <div class="cloud top-right"></div>
       <div class="cloud top-left"></div>
-      <div class="fish" style="top: 50%; left: 50%; position: fixed"></div>
+      <div class="fish" style="top: 30%; right: 30px; position: fixed"></div>
+      <div class="details lead text-light" style="top: 50%; position: fixed">
+      </div>
       <div
         id="depth"
         style="
@@ -78,7 +80,15 @@
         star.style.right = `${Math.random() * 100}vw`;
         document.body.appendChild(star);
       }
-   
+
+      showMovement = () => {
+        let dots = document.getElementsByClassName("deep");
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.right = `${Math.random() * 100}vw`;
+        dots.appendChild(star);
+      };
 
       $(document).ready(function () {
         $("body").css("overflow", "hidden");
@@ -98,14 +108,25 @@
 
         $(window).on("scroll", function () {
           let depth = Math.round($(window).scrollTop() / 2);
+          $(".fish").empty();
+          $(".details").empty();
           if (depth > 100 && depth < 200) {
-            $(".fish").append('<img src="./Creatures/shark.gif">');
+            $(".fish").append('<img class="mx-5" src="./Creatures/shark.gif" style="max-height: 100px">'+
+            '<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 100px">'
+            );
+            $(".details").append('<p class="text-center">These creature feed on planktons and coral</p>');
           } else if (depth > 200 && depth < 400) {
-            $(".fish").append('<img src="./Creatures/jelly.gif">');
+            $(".fish").append('<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 100px">'+
+              '<p class="text-center text-light">This is fish 123</p>'
+            );
           } else if (depth > 400 && depth < 600) {
-            $(".fish").append('<img src="./Creatures/shark.gif">');
+            $(".fish").append('<img class="mx-5" src="./Creatures/shark.gif" style="max-height: 100px">'+
+              '<p class="text-center text-light">This is fish 123</p>'
+            );
           } else if (depth > 600 && depth < 800) {
-            $(".fish").append('<img src="./Creatures/jelly.gif">');
+            $(".fish").append('<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 100px">'+
+              '<p class="text-center text-light">This is fish 123</p>'
+            );
           } else {
             $(".fish").empty();
           }
