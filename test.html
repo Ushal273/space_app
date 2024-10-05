@@ -3,45 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wave Animation</title>
+    <title>Twinkling Dots</title>
     <style>
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
             overflow: hidden;
-            height: 100%;
-            background: #00bfff;
+            background-color: black;
         }
-        .wave {
+        .dot {
             position: absolute;
-            bottom: 0;
-            width: 200%;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 100%;
-            animation: wave-animation 5s infinite linear;
-        }
-        .wave:nth-child(2) {
-            animation: wave-animation 7s infinite linear;
-            opacity: 0.7;
-        }
-        .wave:nth-child(3) {
-            animation: wave-animation 10s infinite linear;
-            opacity: 0.5;
-        }
-        @keyframes wave-animation {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
+    <script>
+        $(document).ready(function() {
+            const numDots = 100;
+            const $body = $('body');
+
+            for (let i = 0; i < numDots; i++) {
+                const $dot = $('<div class="dot"></div>');
+                $dot.css({
+                    top: Math.random() * window.innerHeight,
+                    left: Math.random() * window.innerWidth
+                });
+                $body.append($dot);
+                twinkle($dot);
+            }
+
+            function twinkle($dot) {
+                $dot.animate({ opacity: Math.random() }, 1000, function() {
+                    twinkle($dot);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
