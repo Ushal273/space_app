@@ -1,6 +1,6 @@
 body {
   z-index: -1;
-  height: 100vh;
+  height: 500vh;
   /* background: rgb(223, 221, 221); */
   overflow-x: hidden;
 }
@@ -157,4 +157,25 @@ body {
     transform: scale(1.4);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
   }
+}
+
+/* bg for body */
+.blur-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(5px);
+  opacity: 0.7;
+}
+
+.water-background {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top, #00f, #00f0);
+  z-index: -1;
 }
