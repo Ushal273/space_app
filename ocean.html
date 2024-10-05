@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Scroll</title>
+    <style>
+        /* Body settings */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 200vh; 
+            background: linear-gradient(to bottom, #00aaff, #001f3f); 
+            transition: background-color 0.5s ease;
+        }
+
+        /* Heading */
+        h1 {
+            text-align: center;
+            color: white;
+            padding-top: 50px;
+        }
+
+        /* Content */
+        .content {
+            margin: 50px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+   
+
+    <!-- Import Bootstrap JS -->
+
+</head>
+<body class="container-fluid bg-light min-vh-100 min-vw-100">
+    <div class="wave">
+      <p class="text-center h1 text-light"> 
+        <div class="Creatures">
+           <br> <marquee><img src="Creatures\Cr1.gif"></marquee> <br>
+            <div><marquee><img src="Creatures\Cr2.gif"></marquee></div>
+          </div>
+          
+      </p>
+    </div>
+
+    
+  
+
+
+
+
+
+
+
+    <script>
+        // JavaScript to dynamically change the background color as you scroll down
+        window.addEventListener("scroll", function() {
+            const scrollPosition = window.scrollY;
+            const pageHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercentage = scrollPosition / pageHeight;
+
+           
+            const darkLevel = Math.min(1, scrollPercentage * 1.5); 
+            const red = Math.floor(0 + darkLevel * 0);   
+            const green = Math.floor(170 - darkLevel * 100);  
+            const blue = Math.floor(255 - darkLevel * 155);   
+
+            
+            document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        });
+    </script>
+
+</body>
+</html>
