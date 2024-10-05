@@ -18,9 +18,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
   <body class="">
-    <div id="disp" class="container-fluid">
-      <div class="wave"></div>
+    <div id="disp" class="container-fluid" style="height: 700vh">
+      <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave wave2"></div>
+      </div>
       <div class="sun"></div>
+      <div class="logo">
+        <span class="display-4 text-light p-2">Tantransha </span>
+      </div>
       <div class="moon"></div>
       <div class="cloud top-right"></div>
       <div class="cloud top-left"></div>
@@ -40,8 +46,15 @@
         Depth: 0 meters
       </div>
     </div>
-    <div><marquee scrollamount="10"><img src="Creatures\cr1.gif"></marquee></div>
-    <div><marquee scrollamount="7"><img src="Creatures\Cr2.gif"></marquee></div>
+    <div
+      class="container-fluid"
+      style="
+        height: 3000vh;
+        top: -150vh;
+        background-color: #212529;
+        background: linear-gradient(180deg, #343a40, #000);
+      "
+    ></div>
 
     <script>
       make_dark = () => {
@@ -51,6 +64,7 @@
           $(this).attr("class", "bg-dark").fadeIn(1500);
           $(".moon").fadeIn(1500);
           $(".top-right").fadeIn(1500);
+          $(".logo").fadeIn(1500);
           $(".wave").css("z-index", "100");
         });
         $("body").css("overflow", "scroll");
@@ -69,6 +83,7 @@
         $("body").css("overflow", "hidden");
         $("body").attr("class", "bg-light");
         $(".moon").hide();
+        $(".logo").hide();
         $(".top-right").hide();
 
         setTimeout(() => {
@@ -81,11 +96,17 @@
         }, 2000);
 
         $(window).on("scroll", function () {
-          let depth = Math.round($(window).scrollTop() * 3);
-          if (depth > 1000 && depth < 1500) {
-            $(".fish").text("🐠");
-          }else{
-            $(".fish").text("");
+          let depth = Math.round($(window).scrollTop() / 2);
+          if (depth > 100 && depth < 200) {
+            $(".fish").append('<img src="./Creatures/shark.gif">');
+          } else if (depth > 200 && depth < 400) {
+            $(".fish").append('<img src="./Creatures/jelly.gif">');
+          } else if (depth > 400 && depth < 600) {
+            $(".fish").append('<img src="./Creatures/shark.gif">');
+          } else if (depth > 600 && depth < 800) {
+            $(".fish").append('<img src="./Creatures/jelly.gif">');
+          } else {
+            $(".fish").empty();
           }
           $("#depth").text("Depth: " + depth + " meters");
         });
