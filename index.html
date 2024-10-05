@@ -18,45 +18,56 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
   <body class="">
-    <div class="container-fluid min-vh-100 min-vw-100">
+    <div id="disp" class="container-fluid min-vh-100 min-vw-100">
       <div class="wave"></div>
       <div class="sun"></div>
       <div class="moon"></div>
       <div class="cloud top-right"></div>
       <div class="cloud top-left"></div>
+      <div id="depth" style="position: fixed; color: aliceblue; bottom: 10px; left: 50%; background: none; padding: 5px; z-index: 200;">Depth: 0 meters</div>
     </div>
 
     <script>
       make_dark = () => {
         $(".sun").fadeOut(1500);
         $(".top-left").fadeOut(500);
-        $("body").fadeOut(250, function () {
-          $("body").attr("class", "bg-dark").fadeIn(1500);
+        $("body").fadeOut(750, function () {
+          $(this).attr("class", "bg-dark").fadeIn(1500);
           $(".moon").fadeIn(1500);
           $(".top-right").fadeIn(1500);
           $(".wave").css("z-index", "100");
         });
+        $("body").css("overflow", "scroll");
+        $("body").css("overflow-x", "hidden");
       };
 
+      function createStar() {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.top = `${Math.random() * 45}vh`;
+        star.style.right = `${Math.random() * 100}vw`;
+        document.body.appendChild(star);
+      }
+
       $(document).ready(function () {
+        $("body").css("overflow", "hidden");
         $("body").attr("class", "bg-light");
         $(".moon").hide();
         $(".top-right").hide();
 
         setTimeout(() => {
           make_dark();
-          for (let i = 0; i < 100; i++) {
-            createStar();
-          }
+          setTimeout(() => {
+            for (let i = 0; i < 50; i++) {
+              createStar();
+            }
+          }, 1000);
         }, 2000);
 
-        function createStar() {
-          const star = document.createElement("div");
-          star.classList.add("star");
-          star.style.top = `${Math.random() * 45}vh`;
-          star.style.left = `${Math.random() * 100}vw`;
-          document.body.appendChild(star);
-        }
+        $(window).on("scroll", function () {
+          let depth = Math.round($(window).scrollTop()*3);
+          $("#depth").text("Depth: " + depth + " meters");
+        });
       });
     </script>
   </body>
