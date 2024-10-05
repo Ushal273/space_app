@@ -36,21 +36,19 @@
         style="top: 50%; position: fixed"
       ></div>
       <div
+        class="container-fluid text-light"
         id="depth"
         style="
           position: fixed;
           color: aliceblue;
           bottom: 10px;
-          left: 50%;
-          background: none;
-          padding: 5px;
-          z-index: 200;
+          text-align: center;
         "
       >
         Depth: 0 meters
       </div>
     </div>
-    
+
     <div
       class="container-fluid"
       style="
@@ -63,6 +61,20 @@
     <div class="bubbles"></div>
 
     <script>
+      // flash the cursor
+      function update(e) {
+        var x = e.clientX || e.touches[0].clientX;
+        var y = e.clientY || e.touches[0].clientY;
+
+        document.documentElement.style.setProperty("--cursorX", x + "px");
+        document.documentElement.style.setProperty("--cursorY", y + "px");
+      }
+
+      document.addEventListener("mousemove", update);
+      document.addEventListener("touchmove", update);
+
+      // bubble effect
+
       function createBubble() {
         const bubble = document.createElement("div");
         bubble.classList.add("bubble");
@@ -88,7 +100,6 @@
           $(".moon").fadeIn(1500);
           $(".top-right").fadeIn(1500);
           $(".logo").fadeIn(1500);
-          $(".wave").css("z-index", "100");
         });
         $("body").css("overflow", "scroll");
         $("body").css("overflow-x", "hidden");
@@ -123,17 +134,19 @@
           $(".fish").empty();
           $(".details").empty();
           if (depth >= 100 && depth < 200) {
-            $(".fish").append(
-              '<img class="mx-5" src="./Creatures/shark.gif" style="max-height: 110px">' +
-                '<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 110px">'
-            );
+            $(".fish")
+              .append(
+                '<img class="mx-5" src="./Creatures/shark.gif" style="max-height: 110px">' +
+                  '<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 110px">'
+              )
+              .fadeIn(750);
             $(".details").append(
               '<p class="text-center">These creature feed on planktons and coral</p>'
             );
           } else if (depth >= 200 && depth < 400) {
             $(".fish").append(
               '<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 110px">' +
-                '<p class="text-center text-light">This is fish 123</p>'
+                '<p class="text-center text-light">Hello!! im under water. sexy fish123</p>'
             );
           } else if (depth >= 400 && depth < 600) {
             $(".fish").append(
