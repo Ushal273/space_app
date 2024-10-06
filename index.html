@@ -451,12 +451,12 @@
               '<img class="mx-5" src="./Creatures/bubblegum-coral.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 1358 && depth < 1400) {
+          } else if (depth > 1358 && depth < 1400) {
             $(".fish1").append(
               '<img class="mx-5" src="./Creatures/hatchetfish.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 1395 && depth < 1490) {
+          } else if (depth > 1395 && depth < 1490) {
             $(".fish1").append(
               '<img class="mx-5" src="./Creatures/dragonfish.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
@@ -465,7 +465,6 @@
               '<img class="mx-5" src="./Creatures/big-red-jellyfish.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-           
           } else if (depth > 1489 && depth < 1598) {
             $(".details").append(
               '<img class="mx-5" src="./Creatures/greenland-halibut.png" style="max-height: 400px">' +
@@ -475,34 +474,32 @@
               '<img class="mx-5" src="./Creatures/giant-tube-worm.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 1597 && depth < 1670) {
+          } else if (depth > 1597 && depth < 1670) {
             $(".fish1").append(
               '<img class="mx-5" src="./Creatures/yeti-crab.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }
-          else if (depth > 1669 && depth < 1730) {
+          } else if (depth > 1669 && depth < 1730) {
             $(".fish1").append(
               '<img class="mx-5" src="./Creatures/sixgill-shark.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }
-          else if (depth > 1729 && depth < 1800) {
+          } else if (depth > 1729 && depth < 1800) {
             $(".fish1").append(
               '<img class="mx-5" src="./Creatures/sixgill-shark.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 1799 && depth < 1900) {
+          } else if (depth > 1799 && depth < 1900) {
             $(".fish1").append(
               '<img class="mx-5" src="./Creatures/jewel-squid.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 1899 && depth < 2000) {
+          } else if (depth > 1899 && depth < 2000) {
             $(".details").append(
               '<img class="mx-5" src="./Creatures/sea-pen.png" style="height: 220px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 1999 && depth < 2100) {
+          } else if (depth > 1999 && depth < 2100) {
             $(".fish").append(
               '<img class="mx-5" src="./Creatures/telescope-octopus.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
@@ -511,12 +508,12 @@
               '<img class="mx-5" src="./Creatures/giant-isopod.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 2099 && depth < 2200) {
+          } else if (depth > 2099 && depth < 2200) {
             $(".fish").append(
               '<img class="mx-5" src="./Creatures/greenland-shark.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else if (depth > 2199 && depth < 2350) {
+          } else if (depth > 2199 && depth < 2350) {
             $(".fish1").append(
               '<img class="mx-5" src="./Creatures/colossal-squid.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
@@ -525,8 +522,16 @@
               '<img class="mx-5" src="./Creatures/barreleye-fish.png" style="max-height: 400px">' +
                 '<p class="text-center text-light"></p>'
             );
-          }else {
-            $(".details").append("<p class='text-center h1 text-light'>Deep Sea is very deep... cannot add more animals :(</p>");
+          } else if (depth > 2349 && depth < 2498) {
+            $(".details").append(
+              '<img class="mx-5" src="./Creatures/elephant-seal.png" style="height: 220px">' +
+                '<p class="text-center text-light"></p>'
+            );
+          } else {
+            $(".details").append(
+              "<p class='text-center h1 text-light'>Deep Sea beyond imaginable</p>"+
+              "<p class='text-center h3 text-light'>Deep part is almost lonely...</p>`"
+            );
           }
           $("#depth").text("Depth: " + depth + " meters");
         });
