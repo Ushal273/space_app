@@ -216,6 +216,6 @@ body {
   background: radial-gradient(
     circle 10vmax at var(--cursorX) var(--cursorY),
     rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0) 70%
+    rgba(255, 255, 255, 0) 80%
   )
 }

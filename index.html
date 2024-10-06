@@ -30,29 +30,28 @@
       <div class="moon"></div>
       <div class="cloud top-right"></div>
       <div class="cloud top-left"></div>
-      <div class="fish" style="top: 30%; right: 30px; position: fixed"></div>
+      <div class="fish1" style="top: 20%; left: 30px; position: fixed"></div>
+      <div class="fish" style="bottom: 20%; right: 30px; position: fixed"></div>
       <div
         class="details lead text-light"
         style="top: 50%; position: fixed"
       ></div>
       <div
-        class="container-fluid text-light"
+        class="container-fluid text-light h3"
         id="depth"
         style="
           position: fixed;
           color: aliceblue;
-          bottom: 10px;
+          bottom: 30px;
           text-align: center;
         "
-      >
-        Depth: 0 meters
-      </div>
+      ></div>
     </div>
 
     <div
       class="container-fluid"
       style="
-        height: 3200vh;
+        height: 8500vh;
         top: -150vh;
         background-color: #212529;
         background: linear-gradient(180deg, #343a40, #000);
@@ -61,7 +60,7 @@
     <div class="bubbles"></div>
 
     <script>
-      // flash the cursor
+      // // flash the cursor
       function update(e) {
         var x = e.clientX || e.touches[0].clientX;
         var y = e.clientY || e.touches[0].clientY;
@@ -114,6 +113,7 @@
       }
 
       $(document).ready(function () {
+        $("#depth").hide();
         $("body").css("overflow", "hidden");
         $("body").attr("class", "bg-light");
         $(".moon").hide();
@@ -130,32 +130,194 @@
         }, 2000);
 
         $(window).on("scroll", function () {
-          let depth = Math.round($(window).scrollTop() / 2);
+          let depth = Math.round($(window).scrollTop() / 5);
+          if (depth > 9) {
+            $("#depth").show();
+          } else {
+            $("#depth").hide();
+          }
           $(".fish").empty();
+          $(".fish1").empty();
           $(".details").empty();
-          if (depth >= 100 && depth < 200) {
-            $(".fish")
-              .append(
-                '<img class="mx-5" src="./Creatures/shark.gif" style="max-height: 110px">' +
-                  '<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 110px">'
-              )
-              .fadeIn(750);
+          if (depth >= 10 && depth < 22) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/salmon.png" style="max-height: 110px">' +
+                '<img class="mx-5" src="./Creatures/manatee.png" style="max-height: 220px">'
+            );
             $(".details").append(
-              '<p class="text-center">These creature feed on planktons and coral</p>'
+              '<img class="mx-5" src="./Creatures/striped-bass.png" style="max-height: 110px">'
             );
-          } else if (depth >= 200 && depth < 400) {
+          } else if (depth >= 21 && depth < 42) {
             $(".fish").append(
-              '<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 110px">' +
-                '<p class="text-center text-light">Hello!! im under water. sexy fish123</p>'
+              '<img class="mx-5" src="./Creatures/staghorn-coral.png" style="max-height: 180px">' +
+                '<img class="mx-5" src="./Creatures/polar-bear.png" style="max-height: 210px">' +
+                '<img class="mx-5" src="./Creatures/european-pilchard.png" style="max-height: 220px">' +
+                '<p class="text-center text-light"></p>'
             );
-          } else if (depth >= 400 && depth < 600) {
+            $(".fish1").append(
+              '<img class="mx-5" src="./Creatures/striped-bass.png" style="max-height: 110px">' +
+                '<p class="text-center text-light"></p>'
+            );
+          } else if (depth >= 41 && depth < 62) {
             $(".fish").append(
-              '<img class="mx-5" src="./Creatures/shark.gif" style="max-height: 110px">' +
+              '<img class="mx-5" src="./Creatures/barramundi.png" style="max-height: 110px">' +
+                '<img class="mx-5" src="./Creatures/velvet-crab.png" style="max-height: 110px">' +
+                '<p class="text-center text-light"></p>'
+            );
+            $(".fish1").append(
+              '<img class="mx-5" src="./Creatures/clown-fish.png" style="max-height: 110px">' +
+                '<p class="text-center text-light"></p>'
+            );
+          } else if (depth > 61 && depth < 82) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/atlantic-cod.png" style="max-height: 110px">' +
+                '<img class="mx-5" src="./Creatures/leafy-sea-dragon.png" style="max-height: 110px">' +
+                '<p class="text-center text-light"></p>'
+            );
+            $(".fish1").append(
+              '<img class="mx-5" src="./Creatures/spiny-dogfish.png" style="max-height: 110px">' +
+                '<p class="text-center text-light"></p>'
+            );
+          } else if (depth > 81 && depth < 102) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/mahi-mahi.png" style="max-height: 110px">' +
+                '<img class="mx-5" src="./Creatures/flounder.png" style="max-height: 110px">' +
+                '<p class="text-center text-light"></p>'
+            );
+            $(".fish1").append(
+              '<img class="mx-5" src="./Creatures/spotted-bass.png" style="max-height: 110px">' +
+              '<img class="mx-5" src="./Creatures/barnacle.png" style="max-height: 110px">' +
+                '<img class="mx-5" src="./Creatures/beluga-whale.png" style="max-height: 170px">' +
+                '<p class="text-center text-light"></p>'
+            );
+          } else if (depth > 101 && depth < 122) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/killer-whale.png" style="max-height: 300px">' +
+                '<p class="text-center text-light"></p>'
+            );
+            $(".fish1").append(
+              '<img class="mx-5" src="./Creatures/great-barracuda.png" style="max-height: 110px">' +
+              '<img class="mx-5" src="./Creatures/blue-fish.png" style="max-height: 110px">' +
+                '<p class="text-center text-light"></p>'
+            );
+          } else if (depth > 121 && depth < 142) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
                 '<p class="text-center text-light">This is fish 123</p>'
             );
-          } else if (depth >= 600 && depth < 800) {
+          } else if (depth > 141 && depth < 162) {
             $(".fish").append(
-              '<img class="mx-5" src="./Creatures/jelly.gif" style="max-height: 110px">' +
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 161 && depth < 182) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 181 && depth < 202) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 201 && depth < 222) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 221 && depth < 242) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 241 && depth < 262) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 261 && depth < 282) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 281 && depth < 302) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 301 && depth < 322) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 321 && depth < 342) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 341 && depth < 362) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 361 && depth < 382) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 381 && depth < 402) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 401 && depth < 422) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 421 && depth < 442) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 441 && depth < 462) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 461 && depth < 482) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 481 && depth < 502) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 501 && depth < 522) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 521 && depth < 542) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 541 && depth < 562) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 561 && depth < 582) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
+                '<p class="text-center text-light">This is fish 123</p>'
+            );
+          } else if (depth > 581 && depth < 602) {
+            $(".fish").append(
+              '<img class="mx-5" src="./Creatures/whale.gif" style="max-height: 110px">' +
                 '<p class="text-center text-light">This is fish 123</p>'
             );
           } else {
