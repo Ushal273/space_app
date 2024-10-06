@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemosynthesis Life Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="ocean">
+        <div class="gas" id="gas"></div> <!-- Surrounding gas element -->
+        <div class="seafloor">
+            <div class="vent" id="vent">
+                <div class="chemicals" id="chemicals"></div>
+                <div class="bacteria" id="bacteria" title="Bacteria"></div> <!-- Title for hover -->
+                <div class="energy" id="energy" title="Energy"></div> <!-- Title for hover -->
+            </div>
+            <div class="tube-worms" id="tube-worms" title="Tube Worm"></div> <!-- Title for hover -->
+        </div>
+    </div>
+    <div class="info-panel">
+        <h2 id="step-title">Step 1: Hydrothermal Vents Release Chemicals</h2>
+        <p id="step-description">Hydrothermal vents release hydrogen sulfide and other chemicals into the surrounding water.</p>
+    </div>
+    <button id="next-step">Next Step</button>
+    <script src="app.js"></script>
+</body>
+</html>

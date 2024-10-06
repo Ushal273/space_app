@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top, #001f3f, #004080);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.ocean {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    animation: wave-animation 6s linear infinite;
+}
+
+.ocean::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('path/to/your/ocean-waves.png') repeat-x; /* Add your wave image */
+    opacity: 0.5; /* Adjust the opacity */
+    z-index: 0; /* Send the wave background behind other elements */
+}
+
+.gas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* White gas effect */
+    animation: gas-animation 5s infinite alternate; /* Add animation */
+}
+
+.seafloor {
+    height: 200px;
+    width: 100%;
+    background: #003f7f;
+    position: relative;
+}
+
+.vent {
+    width: 60px;
+    height: 120px;
+    background: radial-gradient(circle at 50% 50%, #00ff99, #007f33);
+    border-radius: 30px;
+    position: absolute;
+    left: calc(50% - 30px);
+    bottom: 200px;
+    animation: vent-blow 1.5s infinite alternate;
+}
+
+.chemicals {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: #e5e000;
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 2s linear infinite;
+}
+
+.bacteria {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 0.6); /* Distinct color for bacteria */
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.energy {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.6) 0%, rgba(255, 255, 0, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.tube-worms {
+    position: absolute;
+    left: calc(50% - 10px);
+    bottom: 0;
+    width: 20px;
+    height: 100px;
+    background-color: rgba(0, 255, 0, 0.6); /* Distinct color for tube worms */
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.info-panel {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px; /* Added margin to separate from info panel */
+}
+
+button:hover {
+    background-color: #0059b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+@keyframes vent-blow {
+    0% { height: 120px; }
+    100% { height: 140px; }
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -20px); }
+    100% { transform: translate(-50%, 0); }
+}
+
+@keyframes gas-animation {
+    0% { opacity: 0.2; }
+    100% { opacity: 0.6; }
+}
+
+@keyframes wave-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -1000px 0;
+    }
+}
